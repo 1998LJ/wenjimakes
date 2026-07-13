@@ -1,0 +1,94 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ModCard from '../components/ModCard.astro';
+
+const mods = [
+  {
+    nexusId: 'ginger-island-survival',
+    title: 'Ginger Island Survival',
+    description: '开局不在农场。你在姜岛醒来，一无所有。生存、探索、自己挣回大陆。大型玩法 Mod，含海盗打劫等原创剧情。',
+    image: 'https://staticdelivery.nexusmods.com/mods/1303/images/thumbnails/46543/46543-1779461586-506636996.jpg',
+    tags: ['大改', '剧情', '生存'],
+    nexusModId: '46543',
+  },
+  {
+    nexusId: 'fishing-net',
+    title: 'Fishing Net',
+    description: '可制作的巨型渔网，放在水里过夜自动捕鱼。耐用度会下降，鼓励定期收取。简单实用的捕鱼玩法扩展。',
+    image: 'https://staticdelivery.nexusmods.com/mods/1303/images/thumbnails/47586/47586-1781331081-162269952.jpg',
+    tags: ['工具', '捕鱼'],
+    nexusModId: '47586',
+  },
+  {
+    nexusId: 'universal-tool',
+    title: 'Universal Tool - Extraterrestrial Meteor Ruler',
+    description: '一把故意超模的全能武器/工具：砸、砍、收割、终结木乃伊、召唤旋转剑阵。内含"天气之子"技能。',
+    image: 'https://staticdelivery.nexusmods.com/mods/1303/images/thumbnails/48087/48087-1782230097-2143305005.png',
+    tags: ['武器', '工具', '超模'],
+    nexusModId: '48087',
+  },
+];
+---
+<Layout title="文几 Makes — 星露谷 Mod 创作者" description="文几——星露谷物语 Mod 创作者。Ginger Island Survival、Fishing Net、Universal Tool 等原创 mod。">
+  <section class="hero">
+    <div class="container">
+      <h1>做自己想玩的</h1>
+      <p>我是文几，星露谷物语 Mod 创作者。做游戏里没有的、我自己想玩的内容。</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        <a href="/mods" class="btn btn-primary">浏览 Mods</a>
+        <a href="https://ko-fi.com/wenjimods" target="_blank" class="btn btn-outline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          请喝咖啡
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">作品</h2>
+      <p class="section-subtitle">已发布 Nexus Mods 的原创 Mod</p>
+      <div class="mod-grid">
+        {mods.map(m => (
+          <ModCard
+            nexusId={m.nexusId}
+            title={m.title}
+            description={m.description}
+            image={m.image}
+            tags={m.tags}
+          />
+        ))}
+        <!-- 魔笛mod placeholder -->
+        <div class="mod-card" style="border-style:dashed;opacity:0.7;">
+          <div class="mod-card-body" style="padding:60px 20px;text-align:center;">
+            <div style="font-size:2.5rem;margin-bottom:12px;">🎵</div>
+            <h3>魔笛 Mod</h3>
+            <p style="margin:8px 0 0;">音乐施法玩法，制作中……</p>
+            <span class="tag" style="background:rgba(255,200,50,0.15);color:#ffc832;margin-top:10px;display:inline-block">Coming Soon</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="text-align:center;">
+    <div class="container">
+      <h2 class="section-title">接 Mod 定制</h2>
+      <p class="section-subtitle" style="margin-bottom:24px;">有想法？我帮你做出来。</p>
+      <a href="/services" class="btn btn-primary">了解详情 →</a>
+    </div>
+  </section>
+
+  <section class="section" style="text-align:center;padding-bottom:80px;">
+    <div class="container">
+      <h2 class="section-title" style="margin-bottom:16px;">支持我</h2>
+      <p style="color:var(--text-muted);margin-bottom:24px;">
+        如果你喜欢我的 Mod，欢迎在 Ko-fi 上请我喝杯咖啡 ☕
+      </p>
+      <a href="https://ko-fi.com/wenjimods" target="_blank" class="kofi-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        Support on Ko-fi
+      </a>
+    </div>
+  </section>
+</Layout>

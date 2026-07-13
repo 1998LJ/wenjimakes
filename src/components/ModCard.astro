@@ -1,0 +1,23 @@
+---
+export interface Props {
+  nexusId: string;
+  title: string;
+  description: string;
+  image: string;
+  tags?: string[];
+  status?: 'released' | 'wip';
+}
+const { nexusId, title, description, image, tags = [], status = 'released' } = Astro.props;
+---
+<a href={`/mods/${nexusId}`} class="mod-card">
+  <img class="mod-card-image" src={image} alt={title} loading="lazy" />
+  <div class="mod-card-body">
+    {status === 'wip' && <span class="tag" style="background:rgba(255,200,50,0.15);color:#ffc832;margin-bottom:8px;display:inline-block">制作中</span>}
+    <div class="mod-tags">
+      {tags.map(tag => <span class="tag">{tag}</span>)}
+    </div>
+    <h3>{title}</h3>
+    <p>{description}</p>
+    <span style="font-size:0.82rem;color:var(--accent);font-weight:600;">查看详情 →</span>
+  </div>
+</a>

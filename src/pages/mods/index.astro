@@ -1,0 +1,51 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ModCard from '../../components/ModCard.astro';
+
+const mods = [
+  {
+    nexusId: 'ginger-island-survival',
+    title: 'Ginger Island Survival',
+    description: '开局不在农场。你在姜岛醒来，一无所有。生存、探索、自己挣回大陆。大型玩法 Mod，含海盗打劫等原创剧情。',
+    image: 'https://staticdelivery.nexusmods.com/mods/1303/images/thumbnails/46543/46543-1779461586-506636996.jpg',
+    tags: ['大改', '剧情', '生存'],
+  },
+  {
+    nexusId: 'fishing-net',
+    title: 'Fishing Net',
+    description: '可制作的巨型渔网，放在水里过夜自动捕鱼。耐用度会下降，鼓励定期收取。',
+    image: 'https://staticdelivery.nexusmods.com/mods/1303/images/thumbnails/47586/47586-1781331081-162269952.jpg',
+    tags: ['工具', '捕鱼'],
+  },
+  {
+    nexusId: 'universal-tool',
+    title: 'Universal Tool - Extraterrestrial Meteor Ruler',
+    description: '一把故意超模的全能武器/工具：砸、砍、收割、终结木乃伊、召唤旋转剑阵。',
+    image: 'https://staticdelivery.nexusmods.com/mods/1303/images/thumbnails/48087/48087-1782230097-2143305005.png',
+    tags: ['武器', '工具', '超模'],
+  },
+];
+---
+<Layout title="Mods — 文几 Makes" description="文几创作的星露谷物语 Mod 列表">
+  <div class="container" style="padding:60px 24px;">
+    <h1 style="font-size:2rem;font-weight:800;margin-bottom:8px;">Mods</h1>
+    <p style="color:var(--text-muted);margin-bottom:40px;">已发布和制作中的 Mod</p>
+    <div class="mod-grid">
+      {mods.map(m => (
+        <ModCard nexusId={m.nexusId} title={m.title} description={m.description} image={m.image} tags={m.tags} />
+      ))}
+    </div>
+
+    <h2 style="font-size:1.3rem;font-weight:700;margin:60px 0 20px;">制作中</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;">
+      <div class="mod-card" style="border-style:dashed;opacity:0.7;">
+        <div class="mod-card-body" style="padding:60px 20px;text-align:center;">
+          <div style="font-size:2.5rem;margin-bottom:12px;">🎵</div>
+          <h3>魔笛 Mod</h3>
+          <p style="margin:8px 0 0;color:var(--text-muted);">音乐施法玩法，用不同曲子触发不同能力。</p>
+          <span class="tag" style="background:rgba(255,200,50,0.15);color:#ffc832;margin-top:10px;display:inline-block">Coming Soon</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
