@@ -1,101 +1,177 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import ModCard from '../components/ModCard.astro';
+import HomeLayout from '../layouts/HomeLayout.astro';
 
-const featured = {
-  nexusId: 'ginger-island-survival',
-  title: 'Ginger Island Survival',
-  description: '开局不在农场——你醒在姜岛岸边，一无所有。探索、求生、一步步挣回大陆。大型玩法 Mod，含海盗打劫等原创剧情。',
-  image: 'https://staticdelivery.nexusmods.com/mods/1303/images/thumbnails/46543/46543-1779461586-506636996.jpg',
-  tags: ['大改', '剧情', '生存'],
-};
-
-const mods = [
-  {
-    nexusId: 'fishing-net',
-    title: 'Fishing Net',
-    description: '巨型渔网，放水里过夜自动捕鱼。耐用度逐渐下降，记得及时收取。',
-    image: 'https://staticdelivery.nexusmods.com/mods/1303/images/thumbnails/47586/47586-1781331081-162269952.jpg',
-    tags: ['工具', '捕鱼'],
-  },
-  {
-    nexusId: 'universal-tool',
-    title: 'Universal Tool — Extraterrestrial Meteor Ruler',
-    description: '故意超模的全能工具：砸、砍、收割、终结木乃伊、还能召唤旋转剑阵。',
-    image: 'https://staticdelivery.nexusmods.com/mods/1303/images/thumbnails/48087/48087-1782230097-2143305005.png',
-    tags: ['武器', '工具', '超模'],
-  },
-];
+const year = new Date().getFullYear();
 ---
-<Layout title="文几 Makes — 星露谷 Mod 创作者" description="文几——星露谷物语 Mod 创作者。Ginger Island Survival、Fishing Net、Universal Tool 等原创 mod。">
-  <section class="hero">
-    <div class="container">
-      <h1>做自己<em>想玩</em>的东西</h1>
-      <p class="hero-sub">我是文几，给星露谷做 Mod。游戏里没有的玩法，我自己做出来。</p>
-      <div class="hero-actions">
-        <a href="/mods" class="btn btn-primary">看看作品</a>
-        <a href="https://ko-fi.com/wenjimods" target="_blank" class="btn btn-outline">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
-          请喝咖啡
-        </a>
-      </div>
+<HomeLayout>
+  <header class="site-header">
+    <div class="shell nav">
+      <a class="brand" href="/" aria-label="文几 WENJI 首页">文几 WENJI <small>MAKES</small></a>
+      <nav class="nav-links" aria-label="主要导航">
+        <a href="#works">作品</a>
+        <a href="#now">正在做</a>
+        <a href="#about">关于</a>
+        <a href="#links">链接</a>
+      </nav>
     </div>
-  </section>
+  </header>
 
-  <section class="section">
-    <div class="container">
-      <p class="section-label">已发布 · Nexus Mods</p>
-
-      <a href={`/mods/${featured.nexusId}`} class="featured-mod">
-        <img class="featured-mod-image" src={featured.image} alt={featured.title} loading="eager" fetchpriority="high" />
-        <div class="featured-mod-body">
-          <div class="mod-tags">
-            {featured.tags.map(tag => <span class="tag">{tag}</span>)}
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <p class="hero-kicker eyebrow">Stardew Valley Mod Creator</p>
+          <h1 id="hero-title">做自己想玩、<span>游戏里没有的内容。</span></h1>
+          <p class="hero-intro">我是文几。一个“如果游戏里有这个就好了”的念头，最后应该变成真的玩法，而不是停在脑子里。</p>
+          <div class="hero-meta">
+            <a href="#works">看我做了什么 <span class="arrow">→</span></a>
+            <span class="hero-status">Now making<br />Magic Flute Mod</span>
           </div>
-          <h3>{featured.title}</h3>
-          <p>{featured.description}</p>
-          <span class="mod-link">查看详情 →</span>
         </div>
-      </a>
-
-      <div class="mod-grid homepage-mod-grid">
-        {mods.map(m => (
-          <ModCard
-            nexusId={m.nexusId}
-            title={m.title}
-            description={m.description}
-            image={m.image}
-            tags={m.tags}
-          />
-        ))}
+        <figure class="portrait">
+          <div class="portrait-frame">
+            <img
+              src="/images/home/wenji-avatar.jpg"
+              width="1254"
+              height="1254"
+              alt="文几的角色头像：白绿头发、红色眼眸，衣领写着 E=mc²"
+              fetchpriority="high"
+            />
+            <figcaption class="portrait-caption"><b>Creator identity</b>文几 WENJI · 原创 MOD 创作者</figcaption>
+          </div>
+        </figure>
       </div>
+    </section>
 
-      <div class="wip-strip homepage-wip-strip">
-        <span class="wip-strip-icon">🎵</span>
-        <div class="wip-strip-text">
-          <h4>魔笛 Mod <span class="tag tag-wip">制作中</span></h4>
-          <p>音乐施法玩法，正在开发。</p>
+    <section class="manifesto" id="about" aria-labelledby="manifesto-title">
+      <div class="shell manifesto-grid">
+        <p class="eyebrow">01 / Why I make</p>
+        <h2 id="manifesto-title">我想的是玩法，代码只是把它变成真的方式。</h2>
+        <div class="manifesto-copy">
+          <p>我从“这个游戏缺什么好玩的”开始，而不是从“我还能加什么功能”开始。</p>
+          <p><strong>不做简单的数值修改。</strong>我更在意一个 Mod 能不能改变你进入游戏、安排一天和理解世界的方式。</p>
+        </div>
+        <div class="principles" aria-label="创作特点">
+          <div class="principle"><b>01 / IDEA</b><span>从一个真正想玩的念头开始</span></div>
+          <div class="principle"><b>02 / SYSTEM</b><span>把它做成完整、能运转的规则</span></div>
+          <div class="principle"><b>03 / FEELING</b><span>自己玩起来不够有趣，就不发布</span></div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="bottom-bar">
-    <div class="container">
-      <div class="bottom-bar-inner">
-        <div class="bottom-bar-item">
-          <p><strong>想定制 Mod？</strong> 有想法我帮你实现。</p>
-          <a href="/services" class="btn btn-ghost">了解详情 →</a>
+    <section id="works" aria-labelledby="works-title">
+      <header class="works-head shell">
+        <div class="works-title">
+          <p class="eyebrow">02 / Selected works</p>
+          <h2 id="works-title">我把这些想法，<br />做成了能玩的东西。</h2>
         </div>
-        <span class="bottom-divider"></span>
-        <div class="bottom-bar-item">
-          <p>喜欢这些 Mod？</p>
-          <a href="https://ko-fi.com/wenjimods" target="_blank" class="kofi-btn">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
-            Ko-fi 支持
+      </header>
+
+      <article class="work">
+        <div class="shell work-inner">
+          <div class="work-meta">
+            <span class="index">01</span>
+            <span>Large-scale opening & narrative</span>
+            <span class="status">Released / Nexus Mods</span>
+          </div>
+          <a class="ginger-layout" href="https://www.nexusmods.com/stardewvalley/mods/46543" target="_blank" rel="noopener noreferrer" aria-label="在 Nexus Mods 查看 Ginger Island Survival">
+            <div class="work-visual" data-fallback="GINGER ISLAND SURVIVAL">
+              <img src="/images/home/ginger-island.webp" width="1300" height="372" loading="lazy" decoding="async" alt="姜岛求生 Mod：玩家在姜岛海岸醒来" />
+            </div>
+            <div class="work-copy">
+              <h3><small>如果开局不是农场呢？</small>Ginger Island<br />Survival</h3>
+              <p>因为太想玩姜岛开局，我自己做了个 Mod。你在岸边醒来，一无所有；探索、求生、搭起营地，再一步步挣回大陆。海盗也会在你攒下足够财富后找上门。</p>
+              <span class="work-link">进入作品 <span class="arrow">→</span></span>
+            </div>
           </a>
         </div>
+      </article>
+
+      <article class="work">
+        <div class="shell work-inner">
+          <div class="work-meta">
+            <span class="index">02</span>
+            <span>Daily rhythm & small system</span>
+            <span class="status">Released / Nexus Mods</span>
+          </div>
+          <a class="fishing-layout" href="https://www.nexusmods.com/stardewvalley/mods/47586" target="_blank" rel="noopener noreferrer" aria-label="在 Nexus Mods 查看 Fishing Net">
+            <div class="work-visual" data-fallback="FISHING NET">
+              <img src="/images/home/fishing-net.webp" width="1300" height="372" loading="lazy" decoding="async" alt="捕鱼网 Mod：一排渔网布置在海岸水面" />
+            </div>
+            <div class="work-copy">
+              <h3>Fishing<br />Net</h3>
+              <p>捕鱼不一定非要一直站在岸边。把渔网放进水里，留它工作一夜，第二天回来收取；耐久度让这套省力的办法依然需要照看。</p>
+              <div class="sequence" aria-label="放置、等待、收取">放置 <i></i> 等待 <i></i> 收取</div>
+              <span class="work-link">进入作品 <span class="arrow">→</span></span>
+            </div>
+          </a>
+        </div>
+      </article>
+
+      <article class="work tool-work">
+        <div class="shell work-inner">
+          <div class="work-meta">
+            <span class="index">03</span>
+            <span>Power fantasy & spectacle</span>
+            <span class="status">Released / Nexus Mods</span>
+          </div>
+          <a class="tool-layout" href="https://www.nexusmods.com/stardewvalley/mods/48087" target="_blank" rel="noopener noreferrer" aria-label="在 Nexus Mods 查看 Universal Tool">
+            <div class="work-visual" data-fallback="UNIVERSAL TOOL">
+              <img src="/images/home/universal-tool.webp" width="1300" height="372" loading="lazy" decoding="async" alt="天外陨星尺 Universal Tool 作品横幅" />
+            </div>
+            <div class="work-copy">
+              <span class="tool-tag">故意超模 / Just for fun</span>
+              <h3>越来越离谱的<br />星露谷神器。</h3>
+              <p>能砸、能砍、能收割、能终结木乃伊，还能召唤旋转剑阵。这里不假装追求平衡——它就是为“爽”做的，包括可以改变天气的「天气之子」。</p>
+              <span class="work-link">进入作品 <span class="arrow">→</span></span>
+            </div>
+          </a>
+        </div>
+      </article>
+    </section>
+
+    <section class="now" id="now" aria-labelledby="now-title">
+      <div class="shell now-grid">
+        <div class="now-number" aria-hidden="true">06</div>
+        <div class="now-copy">
+          <p class="eyebrow">Now making / Magic Flute Mod</p>
+          <h2 id="now-title">六首曲子，<span>六种能力。</span></h2>
+          <p>如果音乐本身就是魔法呢？魔笛 Mod 还在制作中，首版网站只留下这个正在发生的念头。等它正式发布到 Nexus Mods，再把完整的玩法和开发过程补进来。</p>
+          <div class="music-lines" aria-hidden="true"><i></i><i></i><i></i></div>
+          <a class="work-link" href="https://xhslink.com/m/7mGN7KQWYMl" target="_blank" rel="noopener noreferrer">去小红书看开发预告 <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="next" aria-labelledby="next-title">
+      <div class="shell next-grid">
+        <p class="eyebrow">03 / What comes next</p>
+        <div class="next-copy">
+          <h2 id="next-title">Mod 不是终点，<br />是我开始做游戏的地方。</h2>
+          <p>接下来，我会继续把姜岛求生扩成更大的作品，也会去别的游戏里试新的想法。长远一点，我想做出真正属于自己的游戏。</p>
+        </div>
+        <div class="future-list" aria-label="未来方向">
+          <div class="future-item"><b>NEXT / 01</b><span>姜岛求生大型拓展</span></div>
+          <div class="future-item"><b>NEXT / 02</b><span>更多游戏里的 Mod 实验</span></div>
+          <div class="future-item"><b>NEXT / 03</b><span>自己的独立游戏</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="links">
+    <div class="shell footer-main">
+      <h2 class="footer-title">我是文几。<br /><span>作品会继续长大。</span></h2>
+      <div class="footer-links">
+        <a href="https://xhslink.com/m/7mGN7KQWYMl" target="_blank" rel="noopener noreferrer">小红书 <span class="arrow">↗</span></a>
+        <a href="https://www.nexusmods.com/stardewvalley/users/179201778" target="_blank" rel="noopener noreferrer">Nexus Mods <span class="arrow">↗</span></a>
+        <a href="https://ko-fi.com/wenjimods" target="_blank" rel="noopener noreferrer">Ko-fi <span class="arrow">↗</span></a>
+        <span class="email-pending">专用邮箱准备中</span>
       </div>
     </div>
-  </section>
-</Layout>
+    <div class="shell footer-bottom">
+      <span>© {year} 文几 WENJI</span>
+      <span>Made for ideas that should exist.</span>
+    </div>
+  </footer>
+</HomeLayout>

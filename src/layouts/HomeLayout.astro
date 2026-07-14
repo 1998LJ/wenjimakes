@@ -1,0 +1,27 @@
+---
+import '../styles/home.css';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = '文几 WENJI — 星露谷原创 Mod 创作者',
+  description = '文几 WENJI——做自己想玩、游戏里没有的内容。星露谷物语原创 Mod 创作者。',
+} = Astro.props;
+---
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0a2721" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
