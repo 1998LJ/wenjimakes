@@ -441,7 +441,7 @@
     }
     .footer-links a { font: 700 12px/1 var(--sans); letter-spacing: .12em; border-bottom: 1px solid transparent; }
     .footer-links a:hover { border-color: currentColor; }
-    .email-pending { margin-left: auto; color: rgba(255,255,255,.42); font-size: 12px; }
+    .footer-email { margin-left: auto; }
     .footer-bottom {
       display: flex;
       justify-content: space-between;
@@ -527,7 +527,7 @@
       .footer-main { padding-top: 74px; padding-bottom: 60px; }
       .footer-title { font-size: 46px; }
       .footer-links { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
-      .email-pending { margin: 0; grid-column: 1 / -1; }
+      .footer-email { margin: 0; grid-column: 1 / -1; overflow-wrap: anywhere; }
       .footer-bottom { display: block; }
       .footer-bottom span:last-child { display: block; margin-top: 10px; }
     }
