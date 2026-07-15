@@ -2,6 +2,17 @@
 import HomeLayout from '../layouts/HomeLayout.astro';
 
 const year = new Date().getFullYear();
+const commissionMailto = `mailto:wenjimakes@gmail.com?subject=${encodeURIComponent('Mod 定制咨询')}&body=${encodeURIComponent(`游戏与版本：
+
+想做的玩法：
+
+参考内容：
+
+预算范围：
+
+希望完成时间：
+
+是否允许公开发布：`)}`;
 ---
 <HomeLayout>
   <header class="site-header">
@@ -11,6 +22,7 @@ const year = new Date().getFullYear();
         <a href="#works">作品</a>
         <a href="#latest">最新作品</a>
         <a href="#about">关于</a>
+        <a href="#commissions">定制</a>
         <a href="#links">链接</a>
       </nav>
     </div>
@@ -148,6 +160,31 @@ const year = new Date().getFullYear();
           <div class="future-item"><b>NEXT / 02</b><span>更多游戏里的 Mod 实验</span></div>
           <div class="future-item"><b>NEXT / 03</b><span>自己的独立游戏</span></div>
         </div>
+        <aside class="commission-panel" id="commissions" aria-labelledby="commission-title">
+          <div class="commission-rail">
+            <p class="commission-status"><span aria-hidden="true"></span>OPEN</p>
+            <p class="commission-label">MOD<br />COMMISSIONS</p>
+            <span class="commission-availability">目前开放定制</span>
+          </div>
+          <div class="commission-content">
+            <h3 id="commission-title">游戏里没有的东西，<span>可以找我来做。</span></h3>
+            <p class="commission-intro">我接受星露谷物语 Mod 开发委托。玩法机制、功能系统、剧情事件，都可以先聊。你把想法告诉我，我会先判断能不能做、怎么做，再确认范围、报价和交付方式。</p>
+            <p class="commission-boundary">只接我能做好、也适合做的项目。</p>
+            <div class="commission-scopes" aria-label="可定制的内容范围">
+              <span>玩法机制</span><span>功能系统</span><span>剧情事件</span>
+            </div>
+            <ol class="commission-process" aria-label="Mod 定制流程">
+              <li><b>01</b><span>说想法</span></li>
+              <li><b>02</b><span>可行性评估</span></li>
+              <li><b>03</b><span>确认范围与报价</span></li>
+              <li><b>04</b><span>开始制作</span></li>
+            </ol>
+            <div class="commission-action">
+              <a class="commission-link" href={commissionMailto}>告诉我你想做什么 <span class="arrow" aria-hidden="true">→</span></a>
+              <p>定制带来的收入，也会继续投入我的原创 Mod 和独立游戏。</p>
+            </div>
+          </div>
+        </aside>
       </div>
     </section>
   </main>
