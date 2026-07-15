@@ -1,24 +1,44 @@
 ---
 import '../styles/home.css';
+import { getLocale, switchLocalePath } from '../lib/locale';
 
 export interface Props {
   title?: string;
   description?: string;
 }
 
+const locale = getLocale(Astro.url.pathname);
 const {
-  title = '文几 WENJI — 星露谷原创 Mod 创作者',
-  description = '文几 WENJI——做自己想玩、游戏里没有的内容。星露谷物语原创 Mod 创作者。',
+  title = locale === 'en' ? 'Wenji WENJI — Stardew Valley Mod Creator' : '文几 WENJI — 星露谷原创 Mod 创作者',
+  description = locale === 'en'
+    ? 'Wenji WENJI — makes the game content I want to play. Original Stardew Valley mod creator.'
+    : '文几 WENJI——做自己想玩、游戏里没有的内容。星露谷物语原创 Mod 创作者。',
 } = Astro.props;
+const htmlLang = locale === 'en' ? 'en' : 'zh-CN';
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+const alternateUrl = new URL(switchLocalePath(Astro.url.pathname), Astro.site);
+const zhUrl = locale === 'en' ? alternateUrl : canonicalUrl;
+const enUrl = locale === 'en' ? canonicalUrl : alternateUrl;
 ---
 <!doctype html>
-<html lang="zh-CN">
+<html lang={htmlLang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="zh-CN" href={zhUrl} />
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="x-default" href={zhUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:type" content="website" />
     <meta name="theme-color" content="#0a2721" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Roboto+Condensed:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
     <title>{title}</title>
   </head>
   <body>

@@ -61,6 +61,7 @@ header .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 18px;
 }
 
 .logo {
@@ -68,10 +69,11 @@ header .container {
   font-weight: 700;
   color: var(--text);
   letter-spacing: -0.3px;
+  white-space: nowrap;
 }
 .logo span { color: var(--accent); }
 
-nav { display: flex; gap: 24px; align-items: center; }
+nav { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
 nav a {
   color: var(--text-muted);
   font-size: 0.85rem;
@@ -79,6 +81,26 @@ nav a {
   transition: color 0.2s;
 }
 nav a:hover { color: var(--text); }
+
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 46px;
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text-muted);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+.lang-switch:hover {
+  border-color: var(--border-hover);
+  color: var(--text);
+}
 
 /* ===== Hero ===== */
 .hero {
@@ -449,11 +471,11 @@ nav a:hover { color: var(--text); }
 .content-page {
   max-width: 700px;
   margin: 0 auto;
-  padding: 60px 0;
+  padding: 60px 24px;
 }
 
 .content-page h1 {
-  font-size: 2.2rem;
+  font-size: clamp(2rem, 9vw, 2.2rem);
   font-weight: 800;
   margin-bottom: 24px;
 }
@@ -495,7 +517,6 @@ nav a:hover { color: var(--text); }
 footer {
   border-top: 1px solid var(--border);
   padding: 28px 0;
-  text-align: center;
   color: var(--text-dim);
   font-size: 0.78rem;
 }
@@ -503,9 +524,20 @@ footer {
 footer a { color: var(--text-dim); }
 footer a:hover { color: var(--text-muted); }
 
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
 .footer-links {
   margin-top: 4px;
   font-size: 0.75rem;
+}
+
+.footer-lang-switch {
+  flex-shrink: 0;
 }
 
 /* ===== Responsive ===== */
@@ -554,6 +586,11 @@ footer a:hover { color: var(--text-muted); }
     gap: 16px;
   }
   .bottom-divider { display: none; }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
   .mod-header h1 { font-size: 1.6rem; }
   .content-page h1 { font-size: 1.6rem; }

@@ -1,10 +1,18 @@
+---
+import { getLocale, switchLocalePath } from '../lib/locale';
+
+const locale = getLocale(Astro.url.pathname);
+---
 <footer>
-  <div class="container">
-    <p>© {new Date().getFullYear()} <a href="/">文几 Makes</a></p>
-    <p class="footer-links">
-      <a href="https://www.nexusmods.com/stardewvalley/users/179201778" target="_blank">Nexus Mods</a>
-      &nbsp;·&nbsp;
-      <a href="https://ko-fi.com/wenjimods" target="_blank">Ko-fi</a>
-    </p>
+  <div class="container footer-inner">
+    <div>
+      <p>© {new Date().getFullYear()} <a href={locale === 'en' ? '/en/' : '/'}>{locale === 'en' ? 'Wenji Makes' : '文几 Makes'}</a></p>
+      <p class="footer-links">
+        <a href="https://www.nexusmods.com/stardewvalley/users/179201778" target="_blank" rel="noopener noreferrer">Nexus Mods</a>
+        &nbsp;·&nbsp;
+        <a href="https://ko-fi.com/wenjimods" target="_blank" rel="noopener noreferrer">Ko-fi</a>
+      </p>
+    </div>
+    <a class="lang-switch footer-lang-switch" href={switchLocalePath(Astro.url.pathname)}>{locale === 'en' ? '中文' : 'EN'}</a>
   </div>
 </footer>

@@ -1,0 +1,45 @@
+---
+import { getLocale } from '../lib/locale';
+
+const locale = getLocale(Astro.url.pathname);
+const isEnglish = locale === 'en';
+const homeHref = isEnglish ? '/en/' : '/';
+const alternateHref = isEnglish ? '/' : '/en/';
+const brandLabel = isEnglish ? 'Wenji WENJI Home' : '文几 WENJI 首页';
+const menuLabel = isEnglish ? 'Menu' : '菜单';
+const links = isEnglish
+  ? [
+      ['#works', 'Works'],
+      ['#latest', 'Latest'],
+      ['#about', 'About'],
+      ['#commissions', 'Commissions'],
+      ['#links', 'Links'],
+    ]
+  : [
+      ['#works', '作品'],
+      ['#latest', '最新作品'],
+      ['#about', '关于'],
+      ['#commissions', '定制'],
+      ['#links', '链接'],
+    ];
+---
+<header class="site-header">
+  <div class="shell nav">
+    <a class="brand" href={homeHref} aria-label={brandLabel}>
+      {isEnglish ? 'Wenji WENJI' : '文几 WENJI'} <small>MAKES</small>
+    </a>
+
+    <nav class="nav-links nav-links-desktop" aria-label={isEnglish ? 'Main navigation' : '主要导航'}>
+      {links.map(([href, label]) => <a href={href}>{label}</a>)}
+      <a class="nav-lang-switch" href={alternateHref}>{isEnglish ? '中文' : 'EN'}</a>
+    </nav>
+
+    <details class="mobile-nav">
+      <summary>{menuLabel}</summary>
+      <nav class="mobile-nav-panel" aria-label={isEnglish ? 'Mobile navigation' : '移动导航'}>
+        {links.map(([href, label]) => <a href={href}>{label}</a>)}
+        <a class="mobile-lang-switch" href={alternateHref}>{isEnglish ? '切换到中文' : 'Switch to English'}</a>
+      </nav>
+    </details>
+  </div>
+</header>

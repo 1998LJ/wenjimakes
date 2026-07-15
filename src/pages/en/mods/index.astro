@@ -1,0 +1,44 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import ModCard from '../../../components/ModCard.astro';
+
+const mods = [
+  {
+    nexusId: 'ginger-island-survival',
+    title: 'Ginger Island Survival',
+    description: 'Wake up stranded on Ginger Island with nothing. Survive, explore, build a camp, face original story events such as pirate raids, and earn your way back to the mainland.',
+    image: 'https://staticdelivery.nexusmods.com/mods/1303/images/thumbnails/46543/46543-1779461586-506636996.jpg',
+    tags: ['Overhaul', 'Story', 'Survival'],
+  },
+  {
+    nexusId: 'fishing-net',
+    title: 'Fishing Net',
+    description: 'Place a craftable net in the water, leave it overnight, and return to collect fish. Durability keeps it balanced.',
+    image: 'https://staticdelivery.nexusmods.com/mods/1303/images/thumbnails/47586/47586-1781331081-162269952.jpg',
+    tags: ['Tool', 'Fishing', 'Automation'],
+  },
+  {
+    nexusId: 'universal-tool',
+    title: 'Universal Tool — Extraterrestrial Meteor Ruler',
+    description: 'A deliberately overpowered all-in-one tool and weapon for chopping, mining, harvesting, combat, sword formations, and weather control.',
+    image: 'https://staticdelivery.nexusmods.com/mods/1303/images/thumbnails/48087/48087-1782230097-2143305005.png',
+    tags: ['Weapon', 'Tool', 'Power fantasy'],
+  },
+  {
+    nexusId: 'starfall-flute',
+    title: 'Starfall Flute',
+    description: 'Learn six melodies through shops, letters, NPC stories, and secret rituals, then perform them to cast gameplay-changing effects.',
+    image: '/images/home/starfall-flute.webp',
+    tags: ['Music', 'Story', 'Magic'],
+  },
+];
+---
+<Layout title="Mods — Wenji Makes" description="Original Stardew Valley mods created by Wenji.">
+  <div class="container" style="padding:60px 24px;">
+    <h1 style="font-size:2rem;font-weight:800;margin-bottom:8px;">Mods</h1>
+    <p style="color:var(--text-muted);margin-bottom:40px;">Released Stardew Valley mods by Wenji</p>
+    <div class="mod-grid">
+      {mods.map(m => <ModCard {...m} />)}
+    </div>
+  </div>
+</Layout>

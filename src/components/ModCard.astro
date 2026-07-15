@@ -1,4 +1,6 @@
 ---
+import { getLocale, localizeHref } from '../lib/locale';
+
 export interface Props {
   nexusId: string;
   title: string;
@@ -7,17 +9,21 @@ export interface Props {
   tags?: string[];
   status?: 'released' | 'wip';
 }
+
 const { nexusId, title, description, image, tags = [], status = 'released' } = Astro.props;
+const locale = getLocale(Astro.url.pathname);
+const isEnglish = locale === 'en';
+const modPath = localizeHref(Astro.url.pathname, `/mods/${nexusId}`);
 ---
-<a href={`/mods/${nexusId}`} class="mod-card">
+<a href={modPath} class="mod-card">
   <img class="mod-card-image" src={image} alt={title} loading="lazy" />
   <div class="mod-card-body">
-    {status === 'wip' && <span class="tag tag-wip">制作中</span>}
+    {status === 'wip' && <span class="tag tag-wip">{isEnglish ? 'In progress' : '制作中'}</span>}
     <div class="mod-tags">
       {tags.map(tag => <span class="tag">{tag}</span>)}
     </div>
     <h3>{title}</h3>
     <p>{description}</p>
-    <span class="mod-link">查看详情 →</span>
+    <span class="mod-link">{isEnglish ? 'View details →' : '查看详情 →'}</span>
   </div>
 </a>

@@ -1,15 +1,34 @@
+---
+import { getLocale, localizeHref, switchLocalePath } from '../lib/locale';
+
+const locale = getLocale(Astro.url.pathname);
+const isEnglish = locale === 'en';
+const navItems = isEnglish
+  ? [
+      { href: '/en/', label: 'Home' },
+      { href: '/en/mods', label: 'Mods' },
+      { href: '/en/services', label: 'Commissions' },
+      { href: '/en/blog', label: 'Updates' },
+      { href: '/en/about', label: 'About' },
+    ]
+  : [
+      { href: '/', label: '首页' },
+      { href: '/mods', label: 'Mods' },
+      { href: '/services', label: '定制' },
+      { href: '/blog', label: '动态' },
+      { href: '/about', label: '关于' },
+    ];
+---
 <header>
-  <div class="container">
-    <a href="/" class="logo">文几 <span>Makes</span></a>
-    <nav>
-      <a href="/">首页</a>
-      <a href="/mods">Mods</a>
-      <a href="/services">定制</a>
-      <a href="/blog">动态</a>
-      <a href="/about">关于</a>
+  <div class="container header-inner">
+    <a href={isEnglish ? '/en/' : '/'} class="logo">{isEnglish ? 'Wenji' : '文几'} <span>Makes</span></a>
+    <nav class="site-nav" aria-label={isEnglish ? 'Main navigation' : '主要导航'}>
+      {navItems.map(item => (
+        <a href={localizeHref(Astro.url.pathname, item.href)}>{item.label}</a>
+      ))}
     </nav>
+    <a class="lang-switch" href={switchLocalePath(Astro.url.pathname)} aria-label={isEnglish ? 'Switch to Chinese' : '切换到英文'}>
+      {isEnglish ? '中文' : 'EN'}
+    </a>
   </div>
 </header>
-<style>
-  /* Already in global.css */
-</style>

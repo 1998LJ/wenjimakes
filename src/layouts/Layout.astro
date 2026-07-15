@@ -2,19 +2,36 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
+import { getLocale, switchLocalePath } from '../lib/locale';
+
 export interface Props {
   title?: string;
   description?: string;
 }
-const { title = 'Wenji Makes — Stardew Valley Mod Creator', description = '文几——星露谷物语 Mod 创作者' } = Astro.props;
+
+const locale = getLocale(Astro.url.pathname);
+const { title = locale === 'en' ? 'Wenji Makes — Stardew Valley Mod Creator' : 'Wenji Makes — 星露谷物语 Mod 创作者', description = locale === 'en' ? 'Wenji — Stardew Valley mod creator.' : '文几——星露谷物语 Mod 创作者' } = Astro.props;
+const htmlLang = locale === 'en' ? 'en' : 'zh-CN';
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+const alternateUrl = new URL(switchLocalePath(Astro.url.pathname), Astro.site);
+const zhUrl = locale === 'en' ? alternateUrl : canonicalUrl;
+const enUrl = locale === 'en' ? canonicalUrl : alternateUrl;
 ---
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang={htmlLang}>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
   <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalUrl} />
+  <link rel="alternate" hreflang="zh-CN" href={zhUrl} />
+  <link rel="alternate" hreflang="en" href={enUrl} />
+  <link rel="alternate" hreflang="x-default" href={zhUrl} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:type" content="website" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

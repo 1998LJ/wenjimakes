@@ -1,5 +1,6 @@
 ---
 import HomeLayout from '../layouts/HomeLayout.astro';
+import HomeHeader from '../components/HomeHeader.astro';
 
 const year = new Date().getFullYear();
 const commissionMailto = `mailto:wenjimakes@gmail.com?subject=${encodeURIComponent('Mod 定制咨询')}&body=${encodeURIComponent(`游戏与版本：
@@ -15,18 +16,7 @@ const commissionMailto = `mailto:wenjimakes@gmail.com?subject=${encodeURICompone
 是否允许公开发布：`)}`;
 ---
 <HomeLayout>
-  <header class="site-header">
-    <div class="shell nav">
-      <a class="brand" href="/" aria-label="文几 WENJI 首页">文几 WENJI <small>MAKES</small></a>
-      <nav class="nav-links" aria-label="主要导航">
-        <a href="#works">作品</a>
-        <a href="#latest">最新作品</a>
-        <a href="#about">关于</a>
-        <a href="#commissions">定制</a>
-        <a href="#links">链接</a>
-      </nav>
-    </div>
-  </header>
+  <HomeHeader />
 
   <main id="top">
     <section class="hero" aria-labelledby="hero-title">

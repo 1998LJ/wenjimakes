@@ -1,0 +1,224 @@
+---
+import HomeLayout from '../../layouts/HomeLayout.astro';
+import HomeHeader from '../../components/HomeHeader.astro';
+
+const year = new Date().getFullYear();
+const commissionMailto = `mailto:wenjimakes@gmail.com?subject=${encodeURIComponent('Mod commission inquiry')}&body=${encodeURIComponent(`Game and version:
+
+What you want to make:
+
+Reference / examples:
+
+Budget range:
+
+Desired delivery date:
+
+Public release allowed? (Yes/No):`)}`;
+---
+<HomeLayout
+  title="Wenji WENJI — Stardew Valley Mod Creator"
+  description="Wenji WENJI makes the game content they want to play. Original Stardew Valley mod creator."
+>
+  <HomeHeader />
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <p class="hero-kicker eyebrow">Stardew Valley Mod Creator</p>
+          <h1 id="hero-title">I make the <span>game content I want to play.</span></h1>
+          <p class="hero-intro">I’m Wenji. When I think “this game should have this”, I don’t want that idea to stay in my head — I want it to become an actual mechanic.</p>
+          <div class="hero-meta">
+            <a href="#works">See the work <span class="arrow">→</span></a>
+            <span class="hero-status">New release<br />Starfall Flute</span>
+          </div>
+        </div>
+        <figure class="portrait">
+          <div class="portrait-frame">
+            <img
+              src="/images/home/wenji-avatar.jpg"
+              width="1254"
+              height="1254"
+              alt="Wenji's avatar: white and green hair, red eyes, E=mc² on the collar"
+              fetchpriority="high"
+            />
+            <figcaption class="portrait-caption"><b>Creator identity</b>Wenji WENJI · Original mod creator</figcaption>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <section class="manifesto" id="about" aria-labelledby="manifesto-title">
+      <div class="shell manifesto-grid">
+        <p class="eyebrow">01 / Why I make</p>
+        <h2 id="manifesto-title">I think in gameplay first. Code is just the way I make it real.</h2>
+        <div class="manifesto-copy">
+          <p>I start from “what would make this game more fun?” instead of “what features can I add?”.</p>
+          <p><strong>I don’t make simple stat tweaks.</strong> I care about whether a mod changes how you start a day, move through the world, and make decisions.</p>
+        </div>
+        <div class="principles" aria-label="Creative principles">
+          <div class="principle"><b>01 / IDEA</b><span>Start from something I genuinely want to play</span></div>
+          <div class="principle"><b>02 / SYSTEM</b><span>Turn it into a complete, working rule set</span></div>
+          <div class="principle"><b>03 / FEELING</b><span>If it isn’t fun for me, I won’t release it</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="works" aria-labelledby="works-title">
+      <header class="works-head shell">
+        <div class="works-title">
+          <p class="eyebrow">02 / Selected works</p>
+          <h2 id="works-title">I turn those ideas<br />into things you can actually play.</h2>
+        </div>
+      </header>
+
+      <article class="work feature-work ginger-work" id="work-01" aria-labelledby="ginger-title">
+        <div class="shell feature-grid">
+          <div class="work-number" aria-hidden="true">01</div>
+          <a class="feature-visual" href="https://www.nexusmods.com/stardewvalley/mods/46543" target="_blank" rel="noopener noreferrer" aria-label="View Ginger Island Survival on Nexus Mods">
+            <img src="/images/home/ginger-island.webp" width="1300" height="372" loading="lazy" decoding="async" alt="Ginger Island Survival: the player wakes up on Ginger Island's shore" />
+            <span class="feature-caption">Released · Nexus Mods</span>
+          </a>
+          <div class="feature-copy">
+            <p class="eyebrow">01 / Large-scale opening & narrative</p>
+            <h3 id="ginger-title">Ginger Island Survival<span>姜岛求生</span></h3>
+            <p>Because I wanted a Ginger Island start, I made one. You wake up on the shore with nothing; explore, survive, build a camp, and gradually earn your way back to the mainland. Pirates will raid you once you’ve built up enough wealth.</p>
+            <div class="feature-list" aria-label="Ginger Island Survival features"><span>Island start</span><span>Exploration survival</span><span>Pirate events</span></div>
+            <a class="work-link" href="https://www.nexusmods.com/stardewvalley/mods/46543" target="_blank" rel="noopener noreferrer">View on Nexus Mods <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="work feature-work fishing-work" id="work-02" aria-labelledby="fishing-title">
+        <div class="shell feature-grid">
+          <div class="work-number" aria-hidden="true">02</div>
+          <a class="feature-visual" href="https://www.nexusmods.com/stardewvalley/mods/47586" target="_blank" rel="noopener noreferrer" aria-label="View Fishing Net on Nexus Mods">
+            <img src="/images/home/fishing-net.webp" width="1300" height="372" loading="lazy" decoding="async" alt="Fishing Net mod: a row of nets placed on the shoreline" />
+            <span class="feature-caption">Released · Nexus Mods</span>
+          </a>
+          <div class="feature-copy">
+            <p class="eyebrow">02 / Daily rhythm & small system</p>
+            <h3 id="fishing-title">Fishing Net<span>捕鱼网</span></h3>
+            <p>Fishing doesn’t have to mean standing on the dock all day. Place a net in the water, leave it overnight, and come back to collect the catch the next day. Durability keeps the system from being completely hands-off.</p>
+            <div class="feature-list" aria-label="Fishing Net features"><span>Place</span><span>Wait</span><span>Collect</span></div>
+            <a class="work-link" href="https://www.nexusmods.com/stardewvalley/mods/47586" target="_blank" rel="noopener noreferrer">View on Nexus Mods <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="work feature-work tool-work" id="work-03" aria-labelledby="tool-title">
+        <div class="shell feature-grid">
+          <div class="work-number" aria-hidden="true">03</div>
+          <a class="feature-visual" href="https://www.nexusmods.com/stardewvalley/mods/48087" target="_blank" rel="noopener noreferrer" aria-label="View Universal Tool on Nexus Mods">
+            <img src="/images/home/universal-tool.webp" width="1300" height="372" loading="lazy" decoding="async" alt="Universal Tool / Extraterrestrial Meteor Ruler banner" />
+            <span class="feature-caption">Released · Nexus Mods</span>
+          </a>
+          <div class="feature-copy">
+            <p class="eyebrow">03 / Power fantasy & spectacle</p>
+            <h3 id="tool-title">Universal Tool<span>天外陨星尺</span></h3>
+            <p>A deliberately overpowered all-in-one tool. Chop, mine, harvest, end mummies, and summon rotating sword formations. This one is built for fun first — including the weather-changing “Weather Child” skill.</p>
+            <div class="feature-list" aria-label="Universal Tool features"><span>Overpowered on purpose</span><span>All-in-one tool</span><span>Weather Child</span></div>
+            <a class="work-link" href="https://www.nexusmods.com/stardewvalley/mods/48087" target="_blank" rel="noopener noreferrer">View on Nexus Mods <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="work feature-work starfall-work" id="latest" aria-labelledby="latest-title">
+        <div class="shell feature-grid">
+          <div class="work-number" aria-hidden="true">04</div>
+          <a class="feature-visual" href="https://www.nexusmods.com/stardewvalley/mods/49168" target="_blank" rel="noopener noreferrer" aria-label="View Starfall Flute on Nexus Mods">
+            <img src="/images/home/starfall-flute.webp" width="1300" height="372" loading="lazy" decoding="async" alt="Starfall Flute mod: the character plays a flute in the farm while score cards are displayed" />
+            <span class="feature-caption">New release · Nexus Mods</span>
+          </a>
+          <div class="feature-copy">
+            <p class="eyebrow">04 / Latest release</p>
+            <h3 id="latest-title">Starfall Flute<span>星陨魔笛</span></h3>
+            <p>This isn’t a one-button utility item. You first find the flute, then learn six melodies through a shop, limited-time letters, NPC stories, and secret rituals. Only when the character actually performs the tune do the animation, visuals, and spell payoff happen: watering, growth boosts, monster control, going home, and lightning.</p>
+            <div class="feature-list" aria-label="Starfall Flute features"><span>Six melodies</span><span>Story-based unlock</span><span>Music casting</span></div>
+            <a class="work-link" href="https://www.nexusmods.com/stardewvalley/mods/49168" target="_blank" rel="noopener noreferrer">View on Nexus Mods <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="next" aria-labelledby="next-title">
+      <div class="shell next-grid">
+        <p class="eyebrow">03 / What comes next</p>
+        <div class="next-copy">
+          <h2 id="next-title">Mods aren’t the end.<br />They’re where I started making games.</h2>
+          <p>I’ll keep expanding Ginger Island Survival into a bigger project, and I’ll keep testing new ideas in other games too. Long term, I want to make my own game.</p>
+        </div>
+        <div class="future-list" aria-label="Future direction">
+          <div class="future-item"><b>NEXT / 01</b><span>Ginger Island Survival expansion</span></div>
+          <div class="future-item"><b>NEXT / 02</b><span>More mod experiments in other games</span></div>
+          <div class="future-item"><b>NEXT / 03</b><span>My own indie game</span></div>
+        </div>
+        <aside class="commission-panel" id="commissions" aria-labelledby="commission-title">
+          <div class="commission-rail">
+            <p class="commission-status"><span aria-hidden="true"></span>OPEN</p>
+            <p class="commission-label">MOD<br />COMMISSIONS</p>
+            <span class="commission-availability">Commissions open</span>
+          </div>
+          <div class="commission-content">
+            <h3 id="commission-title">If the game doesn’t have it, <span>I can make it.</span></h3>
+            <p class="commission-intro">I take Stardew Valley mod commissions. Gameplay systems, mechanics, and story events are all open for discussion. Tell me the idea first; I’ll evaluate whether it’s feasible and how to approach it, then confirm scope, price, and delivery.</p>
+            <p class="commission-boundary">I only take projects I can do well and that make sense to build.</p>
+            <div class="commission-scopes" aria-label="Commission scope">
+              <span>Gameplay systems</span><span>Functional systems</span><span>Story events</span>
+            </div>
+            <ol class="commission-process" aria-label="Mod commission process">
+              <li><b>01</b><span>Tell me the idea</span></li>
+              <li><b>02</b><span>Feasibility review</span></li>
+              <li><b>03</b><span>Confirm scope & price</span></li>
+              <li><b>04</b><span>Start building</span></li>
+            </ol>
+            <div class="commission-action">
+              <a class="commission-link" href={commissionMailto}>Tell me what you want to make <span class="arrow" aria-hidden="true">→</span></a>
+              <p>Commission income also goes back into my original mods and indie game work.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="links">
+    <div class="shell footer-main">
+      <h2 class="footer-title">I’m Wenji.<br /><span>I make the things I want to play.</span></h2>
+      <div class="footer-links">
+        <a class="footer-link footer-link-xhs" href="https://xhslink.com/m/7mGN7KQWYMl" target="_blank" rel="noopener noreferrer">
+          <span class="footer-link-meta" aria-hidden="true"><span>01</span><span class="arrow">↗</span></span>
+          <span class="footer-link-status"><span aria-hidden="true"></span>Updated regularly</span>
+          <span class="footer-link-body">
+            <strong>Xiaohongshu</strong>
+            <span class="footer-link-note">daily life / creation / progress</span>
+          </span>
+        </a>
+        <a class="footer-link footer-link-nexus" href="https://www.nexusmods.com/stardewvalley/users/179201778" target="_blank" rel="noopener noreferrer">
+          <span class="footer-link-meta" aria-hidden="true"><span>02</span><span class="arrow">↗</span></span>
+          <span class="footer-link-body">
+            <strong>Nexus Mods</strong>
+            <span class="footer-link-note">downloads & updates</span>
+          </span>
+          <span class="footer-link-catalog">Ginger Island · Fishing Net · Universal Tool · Starfall Flute</span>
+        </a>
+        <a class="footer-link footer-link-kofi" href="https://ko-fi.com/wenjimods" target="_blank" rel="noopener noreferrer">
+          <span class="footer-link-meta" aria-hidden="true"><span>03</span><span class="arrow">↗</span></span>
+          <span class="footer-link-body">
+            <strong>Ko-fi</strong>
+            <span class="footer-link-note">support my work</span>
+          </span>
+        </a>
+        <a class="footer-link footer-link-email" href="mailto:wenjimakes@gmail.com">
+          <span class="footer-link-meta" aria-hidden="true"><span>04</span><span class="arrow">↗</span></span>
+          <span class="footer-link-email-action">Email me</span>
+          <strong>wenjimakes@gmail.com</strong>
+        </a>
+      </div>
+    </div>
+    <div class="shell footer-bottom">
+      <span>© {year} Wenji WENJI</span>
+      <span>Made for ideas that should exist.</span>
+    </div>
+  </footer>
+</HomeLayout>
